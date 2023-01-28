@@ -441,7 +441,7 @@ export default function ComponentsPage() {
                 <NextImage
                   useSkeleton
                   className='w-32 md:w-40'
-                  src='/favicon/apple-icon-180x180.png'
+                  src='/favicon/apple-touch-icon.png'
                   width='180'
                   height='180'
                   alt='Icon'
