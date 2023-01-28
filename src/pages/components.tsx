@@ -23,11 +23,8 @@ import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import Skeleton from '@/components/Skeleton';
 
-type Color = (typeof colorList)[number];
-
 export default function ComponentsPage() {
   const [mode, setMode] = React.useState<'dark' | 'light'>('light');
-  const [color, setColor] = React.useState<Color>('sky');
   function toggleMode() {
     return mode === 'dark' ? setMode('light') : setMode('dark');
   }
@@ -43,7 +40,7 @@ export default function ComponentsPage() {
 
       <main>
         <section
-          className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
+          className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', 'orange')}
         >
           <div
             className={clsx(
@@ -67,69 +64,6 @@ export default function ComponentsPage() {
             </div>
 
             <ol className='mt-8 space-y-6'>
-              <li className='space-y-2'>
-                <h2 className='text-lg md:text-xl'>Customize Colors</h2>
-                <p className={clsx('!mt-1 text-sm', textColor)}>
-                  You can change primary color to any Tailwind CSS colors. See
-                  globals.css to change your color.
-                </p>
-                <div className='flex flex-wrap gap-2'>
-                  <select
-                    name='color'
-                    id='color'
-                    value={color}
-                    className={clsx(
-                      'block max-w-xs rounded',
-                      mode === 'dark'
-                        ? 'border border-gray-600 bg-dark'
-                        : 'border-gray-300 bg-white',
-                      'focus:border-primary-400 focus:outline-none focus:ring focus:ring-primary-400'
-                    )}
-                    onChange={(e) => setColor(e.target.value as Color)}
-                  >
-                    {colorList.map((c) => (
-                      <option key={c} value={c}>
-                        {c}
-                      </option>
-                    ))}
-                  </select>
-                  <ButtonLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/blob/main/src/styles/colors.css'>
-                    Check list of colors
-                  </ButtonLink>
-                </div>
-                <div className='flex flex-wrap gap-2 text-xs font-medium'>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-50 text-black'>
-                    50
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-100 text-black'>
-                    100
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-200 text-black'>
-                    200
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-300 text-black'>
-                    300
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-400 text-black'>
-                    400
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-500 text-black'>
-                    500
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-600 text-white'>
-                    600
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-700 text-white'>
-                    700
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-800 text-white'>
-                    800
-                  </div>
-                  <div className='flex h-10 w-10 items-center justify-center rounded bg-primary-900 text-white'>
-                    900
-                  </div>
-                </div>
-              </li>
               <li className='space-y-2'>
                 <h2 className='text-lg md:text-xl'>UnstyledLink</h2>
                 <p className={clsx('!mt-1 text-sm', textColor)}>
