@@ -1,7 +1,7 @@
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
-import { fetchDatabaseById } from '@/lib/notion';
 import { getTimeLineItem } from '@/lib/normalize';
+import { fetchDatabaseById } from '@/lib/notion';
 
 export default function Timeline({ list }: { list: PageObjectResponse[] }) {
   return (
@@ -13,7 +13,7 @@ export default function Timeline({ list }: { list: PageObjectResponse[] }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const databaseId = process.env.DATABASE_ID;
   const sorts = [
     {
@@ -27,5 +27,6 @@ export async function getServerSideProps() {
     props: {
       list,
     },
+    revalidate: 10, // In seconds
   };
 }
