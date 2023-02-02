@@ -11,8 +11,7 @@
     "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",
     "format": "prettier -w .",
-    "format:check": "prettier -c .",
-    "preinstall": "npx only-allow pnpm"
+    "format:check": "prettier -c ."
   },
   "dependencies": {
     "@notionhq/client": "^2.2.3",

@@ -16,7 +16,6 @@ specifiers:
   lint-staged: ^12.5.0
   next: ^13.1.4
   next-router-mock: ^0.7.5
-  next-sitemap: ^2.5.28
   postcss: ^8.4.21
   prettier: ^2.8.3
   prettier-plugin-tailwindcss: ^0.1.13
@@ -49,7 +48,6 @@ devDependencies:
   eslint-plugin-unused-imports: registry.npmmirror.com/eslint-plugin-unused-imports/2.0.0_efvzgobb4ehfcu2vjpj4b4xs5a
   lint-staged: registry.npmmirror.com/lint-staged/12.5.0
   next-router-mock: registry.npmmirror.com/next-router-mock/0.7.5_next@13.1.6+react@18.2.0
-  next-sitemap: registry.npmmirror.com/next-sitemap/2.5.28_next@13.1.6
   postcss: registry.npmmirror.com/postcss/8.4.21
   prettier: registry.npmmirror.com/prettier/2.8.3
   prettier-plugin-tailwindcss: registry.npmmirror.com/prettier-plugin-tailwindcss/0.1.13_prettier@2.8.3
@@ -1825,12 +1823,6 @@ packages:
       '@babel/helper-string-parser': registry.npmmirror.com/@babel/helper-string-parser/7.19.4
       '@babel/helper-validator-identifier': registry.npmmirror.com/@babel/helper-validator-identifier/7.19.1
       to-fast-properties: registry.npmmirror.com/to-fast-properties/2.0.0
-    dev: true
-
-  registry.npmmirror.com/@corex/deepmerge/2.6.148:
-    resolution: {integrity: sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@corex/deepmerge/-/deepmerge-2.6.148.tgz}
-    name: '@corex/deepmerge'
-    version: 2.6.148
     dev: true
 
   registry.npmmirror.com/@eslint/eslintrc/1.4.1:
@@ -4770,21 +4762,6 @@ packages:
     dependencies:
       next: registry.npmmirror.com/next/13.1.6_biqbaboplfbrettd7655fr4n2y
       react: registry.npmmirror.com/react/18.2.0
-    dev: true
-
-  registry.npmmirror.com/next-sitemap/2.5.28_next@13.1.6:
-    resolution: {integrity: sha512-rDMTa7nLE0ikYnu8JDCrwQufIRm4b4Sg8BK11DGdDAmYpXmcmw4Qvm+oVBR8gUL97E6i2ihTM+cRx8mgENDACA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/next-sitemap/-/next-sitemap-2.5.28.tgz}
-    id: registry.npmmirror.com/next-sitemap/2.5.28
-    name: next-sitemap
-    version: 2.5.28
-    engines: {node: '>=14.18'}
-    hasBin: true
-    peerDependencies:
-      next: '*'
-    dependencies:
-      '@corex/deepmerge': registry.npmmirror.com/@corex/deepmerge/2.6.148
-      minimist: registry.npmmirror.com/minimist/1.2.7
-      next: registry.npmmirror.com/next/13.1.6_biqbaboplfbrettd7655fr4n2y
     dev: true
 
   registry.npmmirror.com/next/13.1.6_biqbaboplfbrettd7655fr4n2y:
