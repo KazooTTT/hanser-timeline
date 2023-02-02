@@ -12,7 +12,6 @@
     "typecheck": "tsc --noEmit --incremental false",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-    "postbuild": "next-sitemap --config next-sitemap.config.js",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
@@ -37,7 +36,6 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "lint-staged": "^12.5.0",
     "next-router-mock": "^0.7.5",
-    "next-sitemap": "^2.5.28",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.1.13",
