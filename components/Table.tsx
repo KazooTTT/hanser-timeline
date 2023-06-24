@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { set } from "date-fns"
+import { MoveUpRight } from "lucide-react"
 
 import {
   Table,
@@ -77,6 +78,7 @@ const invoices = [
     title: "Dolor Sit Amet",
     tags: ["science", "technology", "programming", "data"],
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    url: "https://source.unsplash.com/128x128/?cars",
   },
   {
     datetime: "2022-08-18T22:55:13.364Z",
@@ -92,6 +94,7 @@ const invoices = [
     title: "Consectetur Adipiscing Elit",
     tags: ["data", "science", "AI", "technology", "programming"],
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    url: "https://source.unsplash.com/128x128/?cats",
   },
 ]
 
@@ -156,7 +159,7 @@ export default function TableDemo() {
         </TableHeader>
         <TableBody>
           {filteredInvoices.map((invoice) => (
-            <TableRow key={invoice.datetime}>
+            <TableRow key={invoice.datetime} className="group">
               <TableCell className="text-center">
                 {formatDate(invoice.datetime)}
               </TableCell>
@@ -179,7 +182,26 @@ export default function TableDemo() {
                   ))}
                 </div>
               </TableCell>
-              <TableCell>{invoice.content}</TableCell>
+              <TableCell>
+                <div className="relative">
+                  <span>{invoice.content}</span>
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2">
+                    <Button
+                      onClick={() => {
+                        window.open(invoice.url)
+                      }}
+                      variant={"ghost"}
+                      className={
+                        invoice.url
+                          ? "opacity-0 transition-all group-hover:block group-hover:opacity-50  "
+                          : "hidden"
+                      }
+                    >
+                      <MoveUpRight strokeWidth={1} />
+                    </Button>
+                  </span>
+                </div>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
