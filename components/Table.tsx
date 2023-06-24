@@ -121,7 +121,7 @@ export default function TableDemo() {
           return (
             <div key={tag} className='flex items-center space-x-1'>
               <Badge variant="outline">{tag}</Badge>
-              <span className="text-xs">({count})</span>
+              <span className="text-xs font-bold">({count})</span>
             </div>
           )
         })}
