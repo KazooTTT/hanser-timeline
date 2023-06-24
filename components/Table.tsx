@@ -1,4 +1,6 @@
+import { useRef, useState } from "react"
 import Image from "next/image"
+import { set } from "date-fns"
 
 import {
   Table,
@@ -11,6 +13,8 @@ import {
 } from "@/components/ui/table"
 
 import { Badge } from "./ui/badge"
+import { Button } from "./ui/button"
+import { Toggle } from "./ui/toggle"
 
 const invoices = [
   {
@@ -99,30 +103,44 @@ const formatDate = (datetime: string) => {
   const day = date.getDate()
   return `${year}-${month}-${day}`
 }
-const calcTagsCount = invoices.reduce(
-  (acc: { [key: string]: number }, invoice) => {
-    invoice.tags.forEach((tag) => {
-      if (acc[tag]) {
-        acc[tag] += 1
-      } else {
-        acc[tag] = 1
-      }
-    })
-    return acc
-  },
-  {}
-)
 
 export default function TableDemo() {
+  const [activeTag, setActiveTag] = useState<string | undefined>()
+
+  const calcTagsCount = invoices.reduce(
+    (acc: { [key: string]: number }, invoice) => {
+      invoice.tags.forEach((tag) => {
+        if (acc[tag]) {
+          acc[tag] += 1
+        } else {
+          acc[tag] = 1
+        }
+      })
+      return acc
+    },
+    {}
+  )
+
+  const filteredInvoices = activeTag
+    ? invoices.filter((invoice) => invoice.tags.includes(activeTag))
+    : invoices
+
   return (
     <>
       <div className="flex space-x-4">
         {Object.entries(calcTagsCount).map(([tag, count]) => {
           return (
-            <div key={tag} className='flex items-center space-x-1'>
+            <Toggle
+              key={tag}
+              className="flex items-center space-x-1"
+              onPressedChange={() => {
+                tag === activeTag ? setActiveTag(undefined) : setActiveTag(tag)
+              }}
+              pressed={activeTag === tag}
+            >
               <Badge variant="outline">{tag}</Badge>
               <span className="text-xs font-bold">({count})</span>
-            </div>
+            </Toggle>
           )
         })}
       </div>
@@ -130,14 +148,14 @@ export default function TableDemo() {
         <TableHeader>
           <TableRow>
             <TableHead className="w-36 text-center">日期</TableHead>
-            <TableHead className="text-center">缩略图</TableHead>
+            <TableHead className="w-24 text-center">缩略图</TableHead>
             <TableHead className="text-center">标题</TableHead>
             <TableHead className="text-center">标签</TableHead>
             <TableHead className="text-center">内容</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {invoices.map((invoice) => (
+          {filteredInvoices.map((invoice) => (
             <TableRow key={invoice.datetime}>
               <TableCell className="text-center">
                 {formatDate(invoice.datetime)}
