@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/d3dc2570-e4bf-4469-b0c2-127b495e8b91/project/f537a11a-b1a2-4229-804f-04f60408fad6.svg)](https://wakatime.com/badge/user/d3dc2570-e4bf-4469-b0c2-127b495e8b91/project/f537a11a-b1a2-4229-804f-04f60408fad6)
+
 # next-template
 
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
